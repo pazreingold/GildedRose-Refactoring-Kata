@@ -10,61 +10,62 @@ class GildedRose {
     }
 
     public void updateItems() {
-        Arrays.stream(items).forEach(this::update);
+        ItemCategory category = new ItemCategory();
+        Arrays.stream(items).forEach(item -> update(item, category));
     }
 
-    private void update(Item item) {
-        updateQualityOf(item);
-        updateSellInOf(item);
+    private void update(Item item, ItemCategory category) {
+        updateQualityOf(item, category);
+        updateSellInOf(item, category);
         if (item.sellIn < 0) {
-            updateExpired(item);
+            updateExpired(item, category);
         }
     }
 
-    private void updateQualityOf(Item item) {
+    private void updateQualityOf(Item item, ItemCategory category) {
         if (item.name.equals("Aged Brie")) {
-            increaseQualityOf(item);
+            increaseQualityOf(item, category);
 
         } else if (item.name.equals("Backstage passes to a Metallica concert")) {
-            updateByDays(item, 11);
-            updateByDays(item, 6);
-            increaseQualityOf(item);
+            updateByDays(item, 11, category);
+            updateByDays(item, 6, category);
+            increaseQualityOf(item, category);
 
         } else if (!item.name.equals("Sulfuras, Hand of Ragnaros"))
-            decreaseQualityOf(item);
+            decreaseQualityOf(item, category);
     }
 
-    private void updateSellInOf(Item item) {
+    private void updateSellInOf(Item item, ItemCategory category) {
         if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
             item.sellIn = item.sellIn - 1;
         }
     }
 
-    private void updateExpired(Item item) {
+    private void updateExpired(Item item, ItemCategory category) {
         if (item.name.equals("Aged Brie")) {
-            increaseQualityOf(item);
+            increaseQualityOf(item, category);
         } else if (item.name.equals("Backstage passes to a Metallica concert")) {
             item.quality = 0;
         } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
-        } else decreaseQualityOf(item);
+        } else decreaseQualityOf(item, category);
     }
 
 
-    private void increaseQualityOf(Item item) {
+    private void increaseQualityOf(Item item, ItemCategory category) {
         if (item.quality < 50) {
             item.quality = item.quality + 1;
         }
     }
 
-    private void decreaseQualityOf(Item item) {
+    private void decreaseQualityOf(Item item, ItemCategory category) {
         if (item.quality > 0) {
             item.quality = item.quality - 1;
         }
     }
 
-    private void updateByDays(Item item, int days) {
+    private void updateByDays(Item item, int days, ItemCategory category) {
         if (item.sellIn < days) {
-            increaseQualityOf(item);
+            increaseQualityOf(item, category);
         }
     }
 }
