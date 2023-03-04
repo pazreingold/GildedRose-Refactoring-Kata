@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import java.util.Arrays;
+
 class GildedRose {
     Item[] items;
 
@@ -8,9 +10,7 @@ class GildedRose {
     }
 
     public void updateItems() {
-        for (Item item : items) {
-            update(item);
-        }
+        Arrays.stream(items).forEach(this::update);
     }
 
     private void update(Item item) {
