@@ -20,13 +20,13 @@ class GildedRose {
     }
 
     private void updateQualityOf(Item item) {
-        if (item.name.equals("Aged Brie")
-                || item.name.equals("Backstage passes to a Metallica concert")) {
+        if (item.name.equals("Aged Brie")) {
             increaseQualityOf(item);
-            if (item.name.equals("Backstage passes to a Metallica concert")) {
-                updateByDays(item, 11);
-                updateByDays(item, 6);
-            }
+
+        } else if (item.name.equals("Backstage passes to a Metallica concert")) {
+            updateByDays(item, 11);
+            updateByDays(item, 6);
+            increaseQualityOf(item);
 
         } else {
             if (item.quality > 0) {
