@@ -10,14 +10,7 @@ public class ItemCategory {
     }
 
     void updateQualityOf(Item item) {
-        if (item.name.equals("Backstage passes to a Metallica concert")) {
-            updateByDays(item, 11);
-            updateByDays(item, 6);
-            increaseQualityOf(item);
-
-        } else {
-            decreaseQualityOf(item);
-        }
+        decreaseQualityOf(item);
     }
 
     void updateSellInOf(Item item) {
@@ -25,9 +18,7 @@ public class ItemCategory {
     }
 
     void updateExpired(Item item) {
-        if (item.name.equals("Backstage passes to a Metallica concert")) {
-            item.quality = 0;
-        } else decreaseQualityOf(item);
+        decreaseQualityOf(item);
     }
 
     void updateByDays(Item item, int days) {

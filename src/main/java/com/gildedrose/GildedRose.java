@@ -19,11 +19,14 @@ class GildedRose {
     }
 
     private ItemCategory categorize(Item item) {
-        if (item.name.equals("Sulfuras, Hand of Ragnaros")){
+        if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
             return new Sulfuras();
         }
-        if (item.name.equals("Aged Brie")){
+        if (item.name.equals("Aged Brie")) {
             return new AgedBrie();
+        }
+        if (item.name.equals("Backstage passes to a Metallica concert")) {
+            return new Backstage();
         }
         return new ItemCategory();
     }
