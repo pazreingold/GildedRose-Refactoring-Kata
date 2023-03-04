@@ -14,10 +14,6 @@ class GildedRose {
     }
 
     private void update(Item item) {
-        updateItemQuality(item);
-    }
-
-    private void updateItemQuality(Item item) {
         if (!item.name.equals("Aged Brie")
                 && !item.name.equals("Backstage passes to a Metallica concert")) {
             if (item.quality > 0) {
@@ -67,4 +63,5 @@ class GildedRose {
             }
         }
     }
+
 }
