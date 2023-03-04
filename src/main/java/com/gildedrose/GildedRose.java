@@ -16,7 +16,9 @@ class GildedRose {
     private void update(Item item) {
         updateQualityOf(item);
         updateSellInOf(item);
-        updateExpired(item);
+        if (item.sellIn < 0) {
+            updateExpired(item);
+        }
     }
 
     private void updateQualityOf(Item item) {
@@ -38,23 +40,21 @@ class GildedRose {
         }
     }
 
-
     private void updateExpired(Item item) {
-        if (item.sellIn < 0) {
-            if (item.name.equals("Aged Brie")) {
-                increaseQualityOf(item);
+        if (item.name.equals("Aged Brie")) {
+            increaseQualityOf(item);
+        } else {
+            if (item.name.equals("Backstage passes to a Metallica concert")) {
+                item.quality = 0;
             } else {
-                if (item.name.equals("Backstage passes to a Metallica concert")) {
-                    item.quality = 0;
-                } else {
-                    if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                        return;
-                    }
-                    decreaseQualityOf(item);
+                if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                    return;
                 }
+                decreaseQualityOf(item);
             }
         }
     }
+
 
     private void increaseQualityOf(Item item) {
         if (item.quality < 50) {
