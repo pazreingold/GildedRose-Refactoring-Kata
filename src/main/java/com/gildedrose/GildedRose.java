@@ -10,8 +10,12 @@ class GildedRose {
     }
 
     public void updateItems() {
+        Arrays.stream(items).forEach(this::updateItem);
+    }
+
+    private void updateItem(Item item) {
         ItemCategory category = new ItemCategory();
-        Arrays.stream(items).forEach(item -> category.update(item));
+        category.update(item);
     }
 
 
