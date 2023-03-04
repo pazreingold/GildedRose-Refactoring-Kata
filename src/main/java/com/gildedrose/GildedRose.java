@@ -22,6 +22,9 @@ class GildedRose {
         if (item.name.equals("Sulfuras, Hand of Ragnaros")){
             return new Sulfuras();
         }
+        if (item.name.equals("Aged Brie")){
+            return new AgedBrie();
+        }
         return new ItemCategory();
     }
 

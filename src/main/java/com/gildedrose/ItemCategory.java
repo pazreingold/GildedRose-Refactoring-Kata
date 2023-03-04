@@ -10,10 +10,7 @@ public class ItemCategory {
     }
 
     void updateQualityOf(Item item) {
-        if (item.name.equals("Aged Brie")) {
-            increaseQualityOf(item);
-
-        } else if (item.name.equals("Backstage passes to a Metallica concert")) {
+        if (item.name.equals("Backstage passes to a Metallica concert")) {
             updateByDays(item, 11);
             updateByDays(item, 6);
             increaseQualityOf(item);
@@ -28,9 +25,7 @@ public class ItemCategory {
     }
 
     void updateExpired(Item item) {
-        if (item.name.equals("Aged Brie")) {
-            increaseQualityOf(item);
-        } else if (item.name.equals("Backstage passes to a Metallica concert")) {
+        if (item.name.equals("Backstage passes to a Metallica concert")) {
             item.quality = 0;
         } else decreaseQualityOf(item);
     }
@@ -41,7 +36,7 @@ public class ItemCategory {
         }
     }
 
-    void increaseQualityOf(Item item) {
+    protected void increaseQualityOf(Item item) {
         if (item.quality < 50) {
             item.quality = item.quality + 1;
         }
