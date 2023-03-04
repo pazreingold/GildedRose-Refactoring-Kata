@@ -28,6 +28,9 @@ class GildedRose {
         if (item.name.equals("Backstage passes to a Metallica concert")) {
             return new Backstage();
         }
+        if (item.name.equals("Conjured")) {
+            return new Conjured();
+        }
         return new ItemCategory();
     }
 

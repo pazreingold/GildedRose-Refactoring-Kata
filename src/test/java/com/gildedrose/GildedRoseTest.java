@@ -31,6 +31,8 @@ class GildedRoseTest {
         assertTheFollowing("Backstage passes to a Metallica concert", items[7].name, 9, items[7].sellIn, 50, items[7].quality);
         assertTheFollowing("Backstage passes to a Metallica concert", items[8].name, 4, items[8].sellIn, 50, items[8].quality);
         assertTheFollowing("Backstage passes to a Metallica concert", items[9].name, -1, items[9].sellIn, 0, items[9].quality);
+        assertTheFollowing("Conjured", items[10].name, 2, items[10].sellIn, 2, items[10].quality);
+
     }
 
     private Item[] createItems() {
@@ -44,7 +46,8 @@ class GildedRoseTest {
                 new Item("Backstage passes to a Metallica concert", 15, 20),
                 new Item("Backstage passes to a Metallica concert", 10, 48),
                 new Item("Backstage passes to a Metallica concert", 5, 47),
-                new Item("Backstage passes to a Metallica concert", 0, 15)
+                new Item("Backstage passes to a Metallica concert", 0, 15),
+                new Item("Conjured", 3, 4)
         };
     }
 
