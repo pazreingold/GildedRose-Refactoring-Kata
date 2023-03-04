@@ -10,7 +10,7 @@ class GildedRoseTest {
     void foo() {
         Item[] items = new Item[] { new Item("foo", 0, 0) };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.updateItems();
         assertEquals("foo", app.items[0].name);
     }
 
@@ -19,7 +19,7 @@ class GildedRoseTest {
         Item[] items = createItems();
         GildedRose app = new GildedRose(items);
 
-        app.updateQuality();
+        app.updateItems();
 
         assertTheFollowing("Antique table", items[0].name, 9, items[0].sellIn, 19, items[0].quality);
         assertTheFollowing("Antique chair", items[1].name, 9, items[1].sellIn, 0, items[1].quality);
