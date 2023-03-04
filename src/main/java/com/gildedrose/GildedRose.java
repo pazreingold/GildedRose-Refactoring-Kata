@@ -24,13 +24,8 @@ class GildedRose {
                 || item.name.equals("Backstage passes to a Metallica concert")) {
             increaseQualityOf(item);
             if (item.name.equals("Backstage passes to a Metallica concert")) {
-                if (item.sellIn < 11) {
-                    increaseQualityOf(item);
-                }
-
-                if (item.sellIn < 6) {
-                    increaseQualityOf(item);
-                }
+                updateByDays(item, 11);
+                updateByDays(item, 6);
             }
 
         } else {
@@ -41,6 +36,7 @@ class GildedRose {
             }
         }
     }
+
 
     private void updateSellInOf(Item item) {
         if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
@@ -70,6 +66,12 @@ class GildedRose {
     private void increaseQualityOf(Item item) {
         if (item.quality < 50) {
             item.quality = item.quality + 1;
+        }
+    }
+
+    private void updateByDays(Item item, int days) {
+        if (item.sellIn < days) {
+            increaseQualityOf(item);
         }
     }
 }
