@@ -14,8 +14,15 @@ class GildedRose {
     }
 
     private void updateItem(Item item) {
-        ItemCategory category = new ItemCategory();
+        ItemCategory category = categorize(item);
         category.update(item);
+    }
+
+    private ItemCategory categorize(Item item) {
+        if (item.name.equals("Sulfuras, Hand of Ragnaros")){
+            return new Sulfuras();
+        }
+        return new ItemCategory();
     }
 
 

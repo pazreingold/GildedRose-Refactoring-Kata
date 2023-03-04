@@ -18,14 +18,13 @@ public class ItemCategory {
             updateByDays(item, 6);
             increaseQualityOf(item);
 
-        } else if (!item.name.equals("Sulfuras, Hand of Ragnaros"))
+        } else {
             decreaseQualityOf(item);
+        }
     }
 
     void updateSellInOf(Item item) {
-        if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-            item.sellIn = item.sellIn - 1;
-        }
+        item.sellIn = item.sellIn - 1;
     }
 
     void updateExpired(Item item) {
@@ -33,7 +32,6 @@ public class ItemCategory {
             increaseQualityOf(item);
         } else if (item.name.equals("Backstage passes to a Metallica concert")) {
             item.quality = 0;
-        } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
         } else decreaseQualityOf(item);
     }
 
