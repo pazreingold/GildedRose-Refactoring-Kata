@@ -43,16 +43,10 @@ class GildedRose {
     private void updateExpired(Item item) {
         if (item.name.equals("Aged Brie")) {
             increaseQualityOf(item);
-        } else {
-            if (item.name.equals("Backstage passes to a Metallica concert")) {
-                item.quality = 0;
-            } else {
-                if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                    return;
-                }
-                decreaseQualityOf(item);
-            }
-        }
+        } else if (item.name.equals("Backstage passes to a Metallica concert")) {
+            item.quality = 0;
+        } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
+        } else decreaseQualityOf(item);
     }
 
 
