@@ -1,6 +1,9 @@
 package com.gildedrose;
 
 public class ItemCategory {
+    public static final int MAX_QUALITY = 50;
+    public static final int MINIMUM_QUALITY = 0;
+
     void update(Item item) {
         updateQualityOf(item);
         updateSellInOf(item);
@@ -28,13 +31,13 @@ public class ItemCategory {
     }
 
     protected void increaseQualityOf(Item item) {
-        if (item.quality < 50) {
+        if (item.quality < MAX_QUALITY) {
             item.quality = item.quality + 1;
         }
     }
 
     void decreaseQualityOf(Item item) {
-        if (item.quality > 0) {
+        if (item.quality > MINIMUM_QUALITY) {
             item.quality = item.quality - 1;
         }
     }
