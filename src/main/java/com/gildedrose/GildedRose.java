@@ -22,20 +22,14 @@ class GildedRose {
     private void updateQualityOf(Item item) {
         if (item.name.equals("Aged Brie")
                 || item.name.equals("Backstage passes to a Metallica concert")) {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
-            }
+            increaseQualityOf(item);
             if (item.name.equals("Backstage passes to a Metallica concert")) {
                 if (item.sellIn < 11) {
-                    if (item.quality < 50) {
-                        item.quality = item.quality + 1;
-                    }
+                    increaseQualityOf(item);
                 }
 
                 if (item.sellIn < 6) {
-                    if (item.quality < 50) {
-                        item.quality = item.quality + 1;
-                    }
+                    increaseQualityOf(item);
                 }
             }
 
@@ -68,11 +62,14 @@ class GildedRose {
                     item.quality = 0;
                 }
             } else {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-                }
+                increaseQualityOf(item);
             }
         }
     }
 
+    private void increaseQualityOf(Item item) {
+        if (item.quality < 50) {
+            item.quality = item.quality + 1;
+        }
+    }
 }
